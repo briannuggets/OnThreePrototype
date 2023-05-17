@@ -1,5 +1,7 @@
 @import "./mixins";
 @import "./variables";
+@import "../nav";
+@import "../home";
 
 *,
 *::before,
@@ -11,6 +13,8 @@
 
 body {
   font-family: $primary-font;
+  overflow-x: hidden;
+  background-color: black;
 }
 
 input,
@@ -27,8 +31,29 @@ button {
   }
 }
 
-.canvas-container {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
+.shifting-link {
+  color: white;
+  @include flexCenter();
+}
+
+.shifting-link-chars {
+  display: inline-block;
+  overflow: hidden;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.link-char {
+  display: inline-block;
+  position: relative;
+  transition: 0.3s ease-out var(--stagger-reverse);
+  &::before {
+    @include pseudoFormatTL($top: 100%);
+    content: var(--content);
+  }
+}
+
+.hover > .link-char {
+  transition: 0.3s ease-out var(--stagger);
+  transform: translateY(-100%);
 }

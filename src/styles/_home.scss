@@ -1,0 +1,135 @@
+@keyframes pulse {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+
+.canvas-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+#hero {
+  height: 100vh;
+  position: relative;
+  &::before {
+    @include pseudoFormatTL();
+    background: radial-gradient(
+      circle at 15% 125%,
+      rgba(30, 64, 164, 0.4) 20%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    transform-origin: bottom left;
+    animation: pulse 8s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+}
+
+#hero-header {
+  width: 100%;
+  color: white;
+  font-size: 7rem;
+  font-weight: 400;
+  font-family: $secondary-font;
+  letter-spacing: -2px;
+  text-align: center;
+  white-space: nowrap;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: absolute;
+  top: 25%;
+}
+
+#hero-content {
+  width: 35%;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+}
+
+#hero-subheader {
+  color: white;
+  font-weight: 400;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+#hero-cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-cta-link {
+  height: 3rem;
+  border-radius: 8px;
+}
+
+#hero-work {
+  background: linear-gradient(to right, rgb(250, 204, 20), rgb(255, 179, 0));
+  font-weight: 500;
+  color: black;
+}
+
+#hero-contact {
+  border: 1px solid white;
+}
+
+// ------- Media Queries ------- //
+
+@media screen and (max-width: 1468px) {
+  #hero-header {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 1248px) {
+  #hero-header {
+    font-size: 5rem;
+  }
+  #hero-subheader {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (max-width: 1028px) {
+  #hero-header {
+    font-size: 4rem;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+  #hero-subheader {
+    font-size: 1.05rem;
+  }
+  #hero-content {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 864px) {
+  #hero-subheader {
+    font-size: 1rem;
+  }
+  #hero-content {
+    top: 60%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #hero-header {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .hero-cta-link {
+    font-size: 0.8rem;
+  }
+}

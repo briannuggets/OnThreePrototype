@@ -1,0 +1,55 @@
+nav {
+  position: fixed;
+  height: 120px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#nav-logo {
+  height: 80%;
+  margin-left: 2rem;
+  pointer-events: all;
+}
+
+#menu-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 2rem;
+  @include flexCenterColumn();
+  pointer-events: all;
+}
+
+.hamburger {
+  width: 40%;
+  height: 3px;
+  background-color: black;
+  opacity: 0.8;
+  transition: 0.3s ease-out;
+}
+
+.hamburger.top {
+  margin-bottom: 8%;
+}
+
+.hamburger.bot {
+  margin-top: 8%;
+}
+
+#menu-button:hover > .hamburger {
+  opacity: 1;
+}
+
+#menu-button:hover > .hamburger.top,
+#menu-button:hover > .hamburger.bot {
+  transform: scaleX(0.8);
+}
+
+#menu-button:hover > .hamburger.mid {
+  transform: scaleX(1.2);
+}
