@@ -1,10 +1,10 @@
-import Nav from "../general/Nav";
+import Hero from "../general/Hero";
 
 const Home = () => {
   return (
-    <>
-      <Nav />
-    </>
+    <div id="home">
+      <Hero />
+    </div>
   );
 };
 

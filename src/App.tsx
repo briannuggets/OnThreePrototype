@@ -6,6 +6,11 @@ import About from "./components/page/About";
 import Contact from "./components/page/Contact";
 
 function App() {
+  document.documentElement.style.setProperty(
+    "--scrollbar-width",
+    window.innerWidth - document.documentElement.clientWidth + "px"
+  );
+
   return (
     <div className="App">
       <Nav />
