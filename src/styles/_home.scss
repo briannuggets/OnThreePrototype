@@ -79,18 +79,28 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
   animation: fade-in 0.5s ease-in var(--stagger) forwards;
 }
 
+#hero-image-container {
+  opacity: 0;
+  transition: 0.4s ease-in;
+}
+
+#hero-image-container.active {
+  opacity: 1;
+}
+
 #hero-image {
   @include absoluteFill();
   @include imageFormat();
   pointer-events: none;
-  transition: 0.4s ease-in;
-  opacity: 0;
   mask-image: linear-gradient(to bottom, black 10%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, black, transparent);
 }
 
-#hero-image.active {
-  opacity: 0.9;
+.hero-image-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
 }
 
 #hero-scroll {
