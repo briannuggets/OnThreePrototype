@@ -1,7 +1,7 @@
 nav {
   position: fixed;
   height: 120px;
-  width: 100vw;
+  width: calc(100vw - var(--scrollbar-width));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +13,8 @@ nav {
   height: 80%;
   margin-left: 2rem;
   pointer-events: all;
+  background: linear-gradient(to top, white, transparent);
+  border-radius: 4px;
 }
 
 #menu-button {
@@ -27,18 +29,17 @@ nav {
 
 .hamburger {
   width: 40%;
-  height: 3px;
-  background-color: black;
+  border-top: 3px solid black;
   opacity: 0.8;
   transition: 0.3s ease-out;
 }
 
 .hamburger.top {
-  margin-bottom: 8%;
+  margin-bottom: 10%;
 }
 
 .hamburger.bot {
-  margin-top: 8%;
+  margin-top: 10%;
 }
 
 #menu-button:hover > .hamburger {
