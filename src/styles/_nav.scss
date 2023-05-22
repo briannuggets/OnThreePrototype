@@ -1,7 +1,7 @@
 nav {
   position: fixed;
   height: 120px;
-  width: calc(100vw - var(--scrollbar-width));
+  width: calc(100vw - 1rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
