@@ -1,1 +1,35 @@
 @import "./hero";
+
+#home-section-1 {
+  height: 100vh;
+  display: flex;
+  position: relative;
+  div {
+    width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  h2 {
+    font-family: $secondary-font;
+    font-size: 5rem;
+    margin-bottom: 25%;
+    margin-left: 2rem;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25%;
+    margin-right: 2rem;
+  }
+  svg {
+    @include absoluteCenter();
+    left: 40%;
+  }
+}
+
+.scroll-text-char {
+  opacity: 0.1;
+  transition: 0.3s ease-in;
+}
