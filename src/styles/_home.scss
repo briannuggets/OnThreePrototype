@@ -4,10 +4,12 @@
   height: 100vh;
   display: flex;
   position: relative;
+  margin-bottom: 4rem;
   div {
     width: 50%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
   h2 {
     font-family: $secondary-font;
@@ -22,10 +24,18 @@
     flex-wrap: wrap;
     margin-top: 25%;
     margin-right: 2rem;
+    margin-bottom: 2rem;
   }
   svg {
     @include absoluteCenter();
     left: 40%;
+  }
+  .shifting-link {
+    color: orangered;
+    width: fit-content;
+  }
+  .shifting-link-chars {
+    margin: 0;
   }
 }
 

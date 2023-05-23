@@ -201,6 +201,7 @@ const Home = () => {
               "From corporate gatherings to social affairs, we professionally capture the space while you enjoy the main event. Our goal is to capture your brand raw and true to you. We want to tell your story in a natural setting and whether your business is from your home or in the office there is always something interesting to capture."
             )}
           </h3>
+          <ShiftingLink text="About Us &#8594;" href="about" stagger />
         </div>
         <svg
           width="170"
