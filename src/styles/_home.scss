@@ -45,21 +45,26 @@
   }
   span {
     font-size: 12rem;
+    white-space: nowrap;
+    color: rgb(214, 214, 214);
+  }
+  .highlight {
+    color: black;
   }
   span:nth-child(1) {
-    transform: translateX(50%);
+    transform: translateX(-80%);
   }
   span:nth-child(2) {
-    transform: translateX(-10%);
+    transform: translateX(-100%);
   }
   span:nth-child(3) {
-    transform: translateX(80%);
+    transform: translateX(-50%);
   }
 }
 
 #home-section-3 {
   height: 100vh;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(237, 237, 237);
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -104,27 +109,40 @@
 .gallery-image {
   @include imageFormat();
   height: 30rem;
-  object-position: 50% 100%;
+  object-position: 50% 25%;
 }
 
 #section-3-header {
   margin-left: 2rem;
   height: 100%;
   flex: 1;
-  @include flexCenterColumn();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 2rem;
   perspective: 600px;
   h2 {
     transform: rotate3d(1, 0, 0, -30deg) translateY(5rem);
-    font-size: 2.5rem;
-    font-weight: 400;
     color: black;
     opacity: 0;
+    span:nth-child(1) {
+      font-family: $secondary-font;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    span:nth-child(3) {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
   }
   .shifting-link {
     color: orangered;
-    font-size: 1.1rem;
+    font-size: 1rem;
     opacity: 0;
+    width: fit-content;
+  }
+  .shifting-link-chars {
+    margin: 0;
   }
 }
 

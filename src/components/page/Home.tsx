@@ -10,7 +10,7 @@ const Home = () => {
   // GSAP Parameters
   const parameters = {
     textProgress: 0,
-    galleryParallax: 0,
+    galleryParallax: 0.25,
   };
 
   // ------- SECTION 1 ------- //
@@ -92,14 +92,17 @@ const Home = () => {
       return;
     }
 
+    let i = 0;
+    const offsets = ["-40%", "-80%", "-75%"];
     for (const marquee of marqueeRef.current.children) {
       gsap.to(marquee, {
-        x: "30%",
+        transform: `translateX(${offsets[i]})`,
         scrollTrigger: {
           trigger: "#home-section-2",
           scrub: true,
         },
       });
+      i++;
     }
   }, []);
 
@@ -147,7 +150,7 @@ const Home = () => {
     });
 
     gsap.to(parameters, {
-      galleryParallax: 1,
+      galleryParallax: 0.75,
       scrollTrigger: {
         trigger: gallerySectionRef.current,
         scrub: true,
@@ -215,16 +218,35 @@ const Home = () => {
       </section>
       <section id="home-section-2">
         <div ref={marqueeRef}>
-          <span>Events</span>
-          <span>Portrait</span>
-          <span>Lifestyle</span>
+          <span>
+            <span>
+              Events Events <span className="highlight">Events</span> Events
+              Events
+            </span>
+          </span>
+          <span>
+            <span>
+              Portrait Portrait <span className="highlight">Portrait</span>{" "}
+              Portrait Portrait
+            </span>
+          </span>
+          <span>
+            <span>
+              Lifestyle Lifestyle <span className="highlight">Lifestyle</span>{" "}
+              Lifestyle Lifestyle
+            </span>
+          </span>
         </div>
       </section>
       <section id="home-section-3" ref={gallerySectionRef}>
         <div id="section-3-header">
-          <h2 ref={galleryHeaderRef}>We can do it all.</h2>
+          <h2 ref={galleryHeaderRef}>
+            <span>For any occasion</span>
+            <br />
+            <span>We do it all and more.</span>
+          </h2>
           <ShiftingLink
-            text="View More &#8594;"
+            text="View Work &#8594;"
             href="work"
             stagger
             id="gallery-link"
