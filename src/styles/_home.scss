@@ -85,12 +85,12 @@
 }
 
 .scrolling-gallery.left {
-  animation: scroll-up 30s linear infinite;
+  animation: scroll-up 60s linear infinite;
 }
 
 .scrolling-gallery.right {
   margin-right: 2rem;
-  animation: scroll-down 20s linear infinite;
+  animation: scroll-down 50s linear infinite;
 }
 
 .scrolling-gallery {
@@ -104,6 +104,7 @@
 .gallery-image {
   @include imageFormat();
   height: 30rem;
+  object-position: 50% 100%;
 }
 
 #section-3-header {
@@ -125,4 +126,8 @@
     font-size: 1.1rem;
     opacity: 0;
   }
+}
+
+#home-section-4 {
+  height: 100vh;
 }

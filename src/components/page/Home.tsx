@@ -7,11 +7,14 @@ import ShiftingLink from "../general/ShiftingLink";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  // ------- SECTION 1 ------- //
-  const textRef = useRef<HTMLHeadingElement>(null);
+  // GSAP Parameters
   const parameters = {
     textProgress: 0,
+    galleryParallax: 0,
   };
+
+  // ------- SECTION 1 ------- //
+  const textRef = useRef<HTMLHeadingElement>(null);
 
   // Wrap the text in spans to animate each character
   const constructHeader = (text: string) => {
@@ -102,6 +105,7 @@ const Home = () => {
 
   // ------- SECTION 3 ------- //
   const rightGalleryRef = useRef<HTMLDivElement>(null);
+  const leftGalleryRef = useRef<HTMLDivElement>(null);
   const gallerySectionRef = useRef<HTMLDivElement>(null);
   const galleryHeaderRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
@@ -139,6 +143,40 @@ const Home = () => {
       scrollTrigger: {
         trigger: galleryHeaderRef.current,
         start: "top 65%",
+      },
+    });
+
+    gsap.to(parameters, {
+      galleryParallax: 1,
+      scrollTrigger: {
+        trigger: gallerySectionRef.current,
+        scrub: true,
+      },
+      onUpdate: () => {
+        if (rightGalleryRef.current === null) {
+          return;
+        }
+        if (leftGalleryRef.current === null) {
+          return;
+        }
+
+        for (const image of rightGalleryRef.current.children) {
+          (image as HTMLElement).animate(
+            {
+              objectPosition: `50% ${parameters.galleryParallax * 100}%`,
+            },
+            { duration: 200, fill: "forwards", easing: "ease-out" }
+          );
+        }
+
+        for (const image of leftGalleryRef.current.children) {
+          (image as HTMLElement).animate(
+            {
+              objectPosition: `50% ${parameters.galleryParallax * 100}%`,
+            },
+            { duration: 400, fill: "forwards", easing: "ease-out" }
+          );
+        }
       },
     });
   }, []);
@@ -192,7 +230,7 @@ const Home = () => {
             id="gallery-link"
           />
         </div>
-        <div className="scrolling-gallery left">
+        <div className="scrolling-gallery left" ref={leftGalleryRef}>
           <img className="gallery-image" src="./gallery/0.jpg" />
           <img className="gallery-image" src="./gallery/1.jpg" />
           <img className="gallery-image" src="./gallery/2.jpg" />
@@ -217,6 +255,7 @@ const Home = () => {
           <img className="gallery-image" src="./gallery/0.jpg" />
         </div>
       </section>
+      <section id="home-section-4"></section>
     </div>
   );
 };
