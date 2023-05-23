@@ -6,6 +6,10 @@ import About from "./components/page/About";
 import Contact from "./components/page/Contact";
 
 function App() {
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="App">
       <Nav />
