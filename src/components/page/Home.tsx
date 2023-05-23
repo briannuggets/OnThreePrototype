@@ -2,11 +2,12 @@ import { useEffect, useRef } from "react";
 import Hero from "../general/Hero";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ShiftingLink from "../general/ShiftingLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  // ------- SCROLL TEXT ------- //
+  // ------- SECTION 1 ------- //
   const textRef = useRef<HTMLHeadingElement>(null);
   const parameters = {
     textProgress: 0,
@@ -79,6 +80,69 @@ const Home = () => {
     });
   }, []);
 
+  // ------- SECTION 2 ------- //
+
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (marqueeRef.current === null) {
+      return;
+    }
+
+    for (const marquee of marqueeRef.current.children) {
+      gsap.to(marquee, {
+        x: "30%",
+        scrollTrigger: {
+          trigger: "#home-section-2",
+          scrub: true,
+        },
+      });
+    }
+  }, []);
+
+  // ------- SECTION 3 ------- //
+  const rightGalleryRef = useRef<HTMLDivElement>(null);
+  const gallerySectionRef = useRef<HTMLDivElement>(null);
+  const galleryHeaderRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (rightGalleryRef.current === null) {
+      return;
+    }
+    if (gallerySectionRef.current === null) {
+      return;
+    }
+    if (galleryHeaderRef.current === null) {
+      return;
+    }
+
+    rightGalleryRef.current.style.setProperty(
+      "--offset",
+      `${gallerySectionRef.current.offsetHeight}px`
+    );
+
+    gsap.to(galleryHeaderRef.current, {
+      transform: "rotate3d(1, 0, 0, 0deg) translateY(0)",
+      opacity: 1,
+      duration: 3,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: galleryHeaderRef.current,
+        start: "top 65%",
+      },
+    });
+
+    gsap.to("#gallery-link", {
+      opacity: 1,
+      duration: 2,
+      ease: "power4.out",
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: galleryHeaderRef.current,
+        start: "top 65%",
+      },
+    });
+  }, []);
+
   return (
     <div id="home">
       <Hero />
@@ -110,6 +174,48 @@ const Home = () => {
             strokeWidth="2"
           />
         </svg>
+      </section>
+      <section id="home-section-2">
+        <div ref={marqueeRef}>
+          <span>Events</span>
+          <span>Portrait</span>
+          <span>Lifestyle</span>
+        </div>
+      </section>
+      <section id="home-section-3" ref={gallerySectionRef}>
+        <div id="section-3-header">
+          <h2 ref={galleryHeaderRef}>We can do it all.</h2>
+          <ShiftingLink
+            text="View More &#8594;"
+            href="work"
+            stagger
+            id="gallery-link"
+          />
+        </div>
+        <div className="scrolling-gallery left">
+          <img className="gallery-image" src="./gallery/0.jpg" />
+          <img className="gallery-image" src="./gallery/1.jpg" />
+          <img className="gallery-image" src="./gallery/2.jpg" />
+          <img className="gallery-image" src="./gallery/3.jpg" />
+          <img className="gallery-image" src="./gallery/4.jpg" />
+          <img className="gallery-image" src="./gallery/0.jpg" />
+          <img className="gallery-image" src="./gallery/1.jpg" />
+          <img className="gallery-image" src="./gallery/5.jpg" />
+          <img className="gallery-image" src="./gallery/5.jpg" />
+          <img className="gallery-image" src="./gallery/5.jpg" />
+        </div>
+        <div className="scrolling-gallery right" ref={rightGalleryRef}>
+          <img className="gallery-image" src="./gallery/5.jpg" />
+          <img className="gallery-image" src="./gallery/5.jpg" />
+          <img className="gallery-image" src="./gallery/5.jpg" />
+          <img className="gallery-image" src="./gallery/1.jpg" />
+          <img className="gallery-image" src="./gallery/0.jpg" />
+          <img className="gallery-image" src="./gallery/4.jpg" />
+          <img className="gallery-image" src="./gallery/3.jpg" />
+          <img className="gallery-image" src="./gallery/2.jpg" />
+          <img className="gallery-image" src="./gallery/1.jpg" />
+          <img className="gallery-image" src="./gallery/0.jpg" />
+        </div>
       </section>
     </div>
   );
