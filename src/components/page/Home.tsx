@@ -3,6 +3,7 @@ import Hero from "../general/Hero";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShiftingLink from "../general/ShiftingLink";
+import GalleryImage from "../general/GalleryImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,6 @@ const Home = () => {
   // GSAP Parameters
   const parameters = {
     textProgress: 0,
-    galleryParallax: 0.25,
   };
 
   // ------- SECTION 1 ------- //
@@ -149,39 +149,6 @@ const Home = () => {
       },
     });
 
-    gsap.to(parameters, {
-      galleryParallax: 0.75,
-      scrollTrigger: {
-        trigger: gallerySectionRef.current,
-        scrub: true,
-      },
-      onUpdate: () => {
-        if (rightGalleryRef.current === null) {
-          return;
-        }
-        if (leftGalleryRef.current === null) {
-          return;
-        }
-
-        for (const image of rightGalleryRef.current.children) {
-          (image as HTMLElement).animate(
-            {
-              objectPosition: `50% ${parameters.galleryParallax * 100}%`,
-            },
-            { duration: 200, fill: "forwards", easing: "ease-out" }
-          );
-        }
-
-        for (const image of leftGalleryRef.current.children) {
-          (image as HTMLElement).animate(
-            {
-              objectPosition: `50% ${parameters.galleryParallax * 100}%`,
-            },
-            { duration: 400, fill: "forwards", easing: "ease-out" }
-          );
-        }
-      },
-    });
   }, []);
 
   return (
@@ -254,28 +221,28 @@ const Home = () => {
           />
         </div>
         <div className="scrolling-gallery left" ref={leftGalleryRef}>
-          <img className="gallery-image" src="./gallery/0.jpg" />
-          <img className="gallery-image" src="./gallery/1.jpg" />
-          <img className="gallery-image" src="./gallery/2.jpg" />
-          <img className="gallery-image" src="./gallery/3.jpg" />
-          <img className="gallery-image" src="./gallery/4.jpg" />
-          <img className="gallery-image" src="./gallery/0.jpg" />
-          <img className="gallery-image" src="./gallery/1.jpg" />
-          <img className="gallery-image" src="./gallery/5.jpg" />
-          <img className="gallery-image" src="./gallery/5.jpg" />
-          <img className="gallery-image" src="./gallery/5.jpg" />
+          <GalleryImage id={1} href="work" />
+          <GalleryImage id={2} href="work" />
+          <GalleryImage id={3} href="work" />
+          <GalleryImage id={4} href="work" />
+          <GalleryImage id={5} href="work" />
+          <GalleryImage id={1} href="work" />
+          <GalleryImage id={2} href="work" />
+          <GalleryImage placeholder />
+          <GalleryImage placeholder />
+          <GalleryImage placeholder />
         </div>
         <div className="scrolling-gallery right" ref={rightGalleryRef}>
-          <img className="gallery-image" src="./gallery/5.jpg" />
-          <img className="gallery-image" src="./gallery/5.jpg" />
-          <img className="gallery-image" src="./gallery/5.jpg" />
-          <img className="gallery-image" src="./gallery/1.jpg" />
-          <img className="gallery-image" src="./gallery/0.jpg" />
-          <img className="gallery-image" src="./gallery/4.jpg" />
-          <img className="gallery-image" src="./gallery/3.jpg" />
-          <img className="gallery-image" src="./gallery/2.jpg" />
-          <img className="gallery-image" src="./gallery/1.jpg" />
-          <img className="gallery-image" src="./gallery/0.jpg" />
+          <GalleryImage placeholder />
+          <GalleryImage placeholder />
+          <GalleryImage placeholder />
+          <GalleryImage id={2} href="work" />
+          <GalleryImage id={1} href="work" />
+          <GalleryImage id={5} href="work" />
+          <GalleryImage id={4} href="work" />
+          <GalleryImage id={3} href="work" />
+          <GalleryImage id={2} href="work" />
+          <GalleryImage id={1} href="work" />
         </div>
       </section>
       <section id="home-section-4"></section>

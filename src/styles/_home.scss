@@ -4,7 +4,6 @@
   height: 100vh;
   display: flex;
   position: relative;
-  margin-bottom: 4rem;
   div {
     width: 50%;
     display: flex;
@@ -119,7 +118,9 @@
 .gallery-image {
   @include imageFormat();
   height: 30rem;
-  object-position: 50% 25%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 #section-3-header {
@@ -158,4 +159,6 @@
 
 #home-section-4 {
   height: 100vh;
+  margin-top: 12rem;
+  border: 2px solid red;
 }
