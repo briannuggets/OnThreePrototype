@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { useRef } from "react";
-import { MdArrowOutward } from "react-icons/md";
+import { useRef, useState } from "react";
+import { MdArrowOutward, MdPlayArrow } from "react-icons/md";
 import Nav from "./components/general/Nav";
 import Home from "./components/page/Home";
 import Work from "./components/page/Work";
@@ -13,6 +13,7 @@ function App() {
   };
 
   const trailerRef = useRef<HTMLDivElement>(null);
+  const [hoverVid, setHoverVid] = useState<boolean>(false);
   window.onmousemove = (e) => {
     if (trailerRef.current === null) {
       return;
@@ -25,6 +26,11 @@ function App() {
 
     if (interactable !== null) {
       trailerRef.current.children[0].classList.add("visible");
+      if (interactable.classList.contains("video")) {
+        setHoverVid(true);
+      } else {
+        setHoverVid(false);
+      }
     } else {
       trailerRef.current.children[0].classList.remove("visible");
     }
@@ -51,7 +57,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <div id="mouse-trailer" ref={trailerRef}>
-        <MdArrowOutward size={5} />
+        {hoverVid ? <MdPlayArrow size={5} /> : <MdArrowOutward size={5} />}
       </div>
     </div>
   );

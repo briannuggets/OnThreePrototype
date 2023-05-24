@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Hero from "../general/Hero";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShiftingLink from "../general/ShiftingLink";
 import GalleryImage from "../general/GalleryImage";
+import { MdClose } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,7 +149,6 @@ const Home = () => {
         start: "top 65%",
       },
     });
-
   }, []);
 
   return (
@@ -245,7 +245,17 @@ const Home = () => {
           <GalleryImage id={1} href="work" />
         </div>
       </section>
-      <section id="home-section-4"></section>
+      <section id="home-section-4" className="interactable video">
+        <video src="./video/home.mp4" autoPlay muted loop />
+        <h2>
+          Framing your story
+          <br />
+          One moment at a time.
+        </h2>
+      </section>
+      <section id="home-section-5">
+
+      </section>
     </div>
   );
 };

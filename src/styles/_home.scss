@@ -160,5 +160,29 @@
 #home-section-4 {
   height: 100vh;
   margin-top: 12rem;
-  border: 2px solid red;
+  position: relative;
+  video {
+    @include imageFormat();
+  }
+  &::after {
+    @include pseudoFormatTL();
+    background: linear-gradient(to top, black, transparent 50%);
+  }
+  h2 {
+    position: absolute;
+    top: 5rem;
+    left: 2rem;
+    font-size: 5rem;
+    mix-blend-mode: difference;
+    color: white;
+    font-weight: 500;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#home-section-5 {
+  height: 100vh;
+  background-color: black;
 }
