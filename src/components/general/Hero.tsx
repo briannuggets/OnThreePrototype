@@ -46,6 +46,11 @@ const Hero = () => {
               imageContainerRef.current.classList.add("active");
             }
           }}
+          onMouseLeave={() => {
+            if (imageContainerRef.current) {
+              imageContainerRef.current.classList.remove("active");
+            }
+          }}
         >
           {wordsArray[i]}
         </span>
