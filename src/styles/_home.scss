@@ -73,7 +73,7 @@
 
 #home-section-3 {
   height: 100vh;
-  background-color: rgb(237, 237, 237);
+  background: rgb(236, 236, 236);
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -159,7 +159,7 @@
 
 #home-section-4 {
   height: 100vh;
-  margin-top: 12rem;
+  margin-top: 8rem;
   position: relative;
   video {
     @include imageFormat();
@@ -184,5 +184,126 @@
 
 #home-section-5 {
   height: 100vh;
+  color: white;
   background-color: black;
+  @include flexCenter();
+}
+
+#footer-wrapper {
+  height: 90%;
+  width: calc(100% - 4rem);
+  border: 2px solid white;
+  display: flex;
+  position: relative;
+}
+
+.footer {
+  height: 80%;
+}
+
+.footer.left {
+  flex: 1;
+  border-right: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  h2,
+  h3 {
+    margin: 2rem;
+  }
+  h2 {
+    font-family: $secondary-font;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  .shifting-link {
+    width: fit-content;
+    font-size: 1.25rem;
+  }
+  .shifting-link-chars {
+    margin: 0;
+  }
+}
+
+#footer-links {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer.right {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  input:not([type="submit"]),
+  textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+  }
+  textarea {
+    resize: none;
+  }
+}
+
+#footer-marquee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  border-top: 2px solid white;
+}
+
+.form-small {
+  flex: 1;
+}
+
+.form-large {
+  flex: 2;
+  padding-top: 1.5rem;
+}
+
+#submit-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    position: relative;
+    margin-right: 2rem;
+  }
+  div::before {
+    @include pseudoFormatTL($height: 1px, $top: 100%);
+    background-color: white;
+    transform: scale(0);
+    transition: 0.5s cubic-bezier(0.04, 0.67, 0.27, 0.9);
+  }
+  div:hover::before {
+    transform: scale(1);
+  }
+  span {
+    @include flexCenter();
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+.form-submit {
+  background-color: transparent;
+  font-size: 1.5rem;
+  color: orangered;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
 }

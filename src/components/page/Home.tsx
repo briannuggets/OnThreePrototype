@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShiftingLink from "../general/ShiftingLink";
 import GalleryImage from "../general/GalleryImage";
-import { MdClose } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +135,7 @@ const Home = () => {
       ease: "power4.out",
       scrollTrigger: {
         trigger: galleryHeaderRef.current,
-        start: "top 65%",
+        start: "top 85%",
       },
     });
 
@@ -254,7 +254,45 @@ const Home = () => {
         </h2>
       </section>
       <section id="home-section-5">
-
+        <div id="footer-wrapper">
+          <div className="footer left">
+            <h2>Interested in a shoot?</h2>
+            <h3>
+              Give us the details of your project and we'll get back to you
+              soon.
+            </h3>
+            <div id="footer-links">
+              <ShiftingLink
+                text="Instagram   &#8599;"
+                href="https://www.instagram.com/onthreephotography/?hl=en"
+                stagger
+                newTab
+              />
+              <ShiftingLink
+                text="LinkedIn     &#8599;"
+                href="https://www.linkedin.com/company/onthreephotography/"
+                stagger
+                newTab
+              />
+            </div>
+          </div>
+          <form className="footer right">
+            <input type="text" placeholder="Name" className="form-small" />
+            <input type="text" placeholder="Email" className="form-small" />
+            <input type="text" placeholder="Phone" className="form-small" />
+            <textarea placeholder="Message" className="form-large" />
+            <div className="form-small" id="submit-container">
+              <span>
+                <MdLocationOn size={30} />
+                &nbsp;Richmond, VA
+              </span>
+              <div>
+                <input type="submit" value="Send" className="form-submit" />
+              </div>
+            </div>
+          </form>
+          <div id="footer-marquee"></div>
+        </div>
       </section>
     </div>
   );
