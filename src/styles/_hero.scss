@@ -83,11 +83,6 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
 #hero-image-container {
   opacity: 0;
   transition: 0.4s ease-in;
-  &::before {
-    @include pseudoFormatTL($top: 100%, $height: 30vh);
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: -1;
-  }
 }
 
 #hero-image-container.active {
