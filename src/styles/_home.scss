@@ -31,7 +31,7 @@
   }
   .shifting-link {
     font-size: 1.25rem;
-    color: orangered;
+    color: $accent-color;
     width: fit-content;
   }
   .shifting-link-chars {
@@ -56,10 +56,10 @@
   span {
     font-size: 12rem;
     white-space: nowrap;
-    color: rgb(214, 214, 214);
+    color: lighten($secondary-color, 75%);
   }
   .highlight {
-    color: black;
+    color: $secondary-color;
   }
   span:nth-child(1) {
     transform: translateX(-80%);
@@ -74,7 +74,7 @@
 
 #home-section-3 {
   height: 100vh;
-  background: rgb(236, 236, 236);
+  background: darken($primary-color, 2%);
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -135,12 +135,12 @@
   perspective: 600px;
   h2 {
     transform: rotate3d(1, 0, 0, -30deg) translateY(5rem);
-    color: black;
+    color: $secondary-color;
     opacity: 0;
     span:nth-child(1) {
       font-family: $secondary-font;
-      font-size: 1.1rem;
-      font-weight: 400;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
     span:nth-child(3) {
       font-size: 2.5rem;
@@ -148,7 +148,7 @@
     }
   }
   .shifting-link {
-    color: orangered;
+    color: $accent-color;
     font-size: 1.25rem;
     opacity: 0;
     width: fit-content;
@@ -167,7 +167,11 @@
   }
   &::after {
     @include pseudoFormatTL();
-    background: linear-gradient(to top, black, transparent 50%);
+    background: linear-gradient(
+      to top,
+      darken($secondary-color, 2%),
+      transparent 50%
+    );
   }
   h2 {
     position: absolute;
@@ -175,7 +179,7 @@
     left: 2rem;
     font-size: 5rem;
     mix-blend-mode: difference;
-    color: white;
+    color: $primary-color;
     font-weight: 500;
   }
   &:hover {
@@ -207,15 +211,15 @@
 
 #home-section-5 {
   height: 100vh;
-  color: white;
-  background-color: black;
+  color: $primary-color;
+  background-color: darken($secondary-color, 2%);
   @include flexCenter();
 }
 
 #footer-wrapper {
   height: 90%;
   width: calc(100% - 4rem);
-  border: 2px solid white;
+  border: 2px solid $primary-color;
   display: flex;
   position: relative;
 }
@@ -226,7 +230,7 @@
 
 .footer.left {
   flex: 1;
-  border-right: 2px solid white;
+  border-right: 2px solid $primary-color;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -245,6 +249,7 @@
     margin-top: 0;
   }
   .shifting-link {
+    color: lighten($accent-color, 20%);
     width: fit-content;
     font-size: 1.25rem;
   }
@@ -270,8 +275,8 @@
   textarea {
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid white;
-    color: white;
+    border-bottom: 2px solid $primary-color;
+    color: $primary-color;
     padding-left: 2rem;
     font-size: 1.5rem;
   }
@@ -294,7 +299,7 @@
   bottom: 0;
   width: 100%;
   height: 20%;
-  border-top: 2px solid white;
+  border-top: 2px solid $primary-color;
   overflow: hidden;
   div {
     height: 100%;
@@ -329,7 +334,7 @@
   }
   div::before {
     @include pseudoFormatTL($height: 1px, $top: 100%);
-    background-color: white;
+    background-color: $primary-color;
     transform: scale(0);
     transition: 0.5s cubic-bezier(0.04, 0.67, 0.27, 0.9);
   }
@@ -346,7 +351,7 @@
 .form-submit {
   background-color: transparent;
   font-size: 1.5rem;
-  color: orangered;
+  color: lighten($accent-color, 20%);
   border: none;
   &:hover {
     cursor: pointer;

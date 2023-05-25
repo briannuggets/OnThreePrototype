@@ -13,8 +13,8 @@ nav {
   height: 80%;
   margin-left: 2rem;
   pointer-events: all;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to top, $primary-color, transparent);
+  border: 1px solid $primary-color;
   border-bottom-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -23,7 +23,7 @@ nav {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: white;
+  background-color: $primary-color;
   margin-right: 2rem;
   @include flexCenterColumn();
   pointer-events: all;
@@ -31,7 +31,7 @@ nav {
 
 .hamburger {
   width: 40%;
-  border-top: 3px solid black;
+  border-top: 3px solid $secondary-color;
   opacity: 0.8;
   transition: 0.3s ease-out;
 }

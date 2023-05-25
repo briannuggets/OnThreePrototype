@@ -1,5 +1,9 @@
 const Work = () => {
-  return <div>This is the Work page.</div>;
+  return (
+    <div className="sample-page">
+      <span>A work page showcasing previous clients and sample photos.</span>
+    </div>
+  );
 };
 
 export default Work;

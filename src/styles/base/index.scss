@@ -14,7 +14,7 @@
 body {
   font-family: $primary-font;
   overflow-x: hidden;
-  background-color: white;
+  background-color: $primary-color;
 }
 
 body:has(#video-modal) {
@@ -36,7 +36,7 @@ button {
 }
 
 .shifting-link {
-  color: white;
+  color: $primary-color;
   @include flexCenter();
 }
 
@@ -86,4 +86,13 @@ button {
 
 .App:hover #mouse-trailer {
   opacity: 1;
+}
+
+.sample-page {
+  height: 100vh;
+  @include flexCenter();
+  span {
+    font-size: 1.25rem;
+    color: $secondary-color;
+  }
 }

@@ -6,7 +6,7 @@
 
 #hero-header {
   font-family: $secondary-font;
-  color: rgb(39, 39, 39);
+  color: $secondary-color;
   width: 100%;
   font-size: 3.4vw;
   user-select: none;
@@ -104,6 +104,7 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
 }
 
 #hero-scroll {
+  font-size: 1.1rem;
   font-weight: 500;
   position: absolute;
   left: 2rem;
@@ -117,14 +118,12 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
   display: flex;
   justify-content: space-between;
   gap: 2.5rem;
+  font-size: 1.1rem;
   .shifting-link-chars {
     margin: 0;
   }
   span {
-    color: black;
+    color: $accent-color;
     font-weight: 500;
-  }
-  .hover > span {
-    color: orangered;
   }
 }
