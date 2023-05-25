@@ -291,7 +291,22 @@ const Home = () => {
               </div>
             </div>
           </form>
-          <div id="footer-marquee"></div>
+          <div id="footer-marquee">
+            <div>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+              <span>ON THREE</span>
+              <span>&#183;</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
