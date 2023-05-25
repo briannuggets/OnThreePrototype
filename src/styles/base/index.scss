@@ -17,6 +17,10 @@ body {
   background-color: white;
 }
 
+body:has(#video-modal) {
+  overflow-y: hidden;
+}
+
 input,
 textarea,
 button {

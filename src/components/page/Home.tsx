@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShiftingLink from "../general/ShiftingLink";
 import GalleryImage from "../general/GalleryImage";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn, MdClose } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -151,6 +151,9 @@ const Home = () => {
     });
   }, []);
 
+  // ------- SECTION 4 ------- //
+  const [videoPlaying, setVideoPlaying] = useState(false);
+
   return (
     <div id="home">
       <Hero />
@@ -236,23 +239,41 @@ const Home = () => {
           <GalleryImage placeholder />
           <GalleryImage placeholder />
           <GalleryImage placeholder />
-          <GalleryImage id={2} href="work" />
-          <GalleryImage id={1} href="work" />
-          <GalleryImage id={5} href="work" />
-          <GalleryImage id={4} href="work" />
-          <GalleryImage id={3} href="work" />
-          <GalleryImage id={2} href="work" />
-          <GalleryImage id={1} href="work" />
+          <GalleryImage id={7} href="work" />
+          <GalleryImage id={6} href="work" />
+          <GalleryImage id={10} href="work" />
+          <GalleryImage id={9} href="work" />
+          <GalleryImage id={8} href="work" />
+          <GalleryImage id={7} href="work" />
+          <GalleryImage id={6} href="work" />
         </div>
       </section>
-      <section id="home-section-4" className="interactable video">
-        <video src="./video/home.mp4" autoPlay muted loop />
+      <section
+        id="home-section-4"
+        className="interactable video"
+        onClick={() => {
+          setVideoPlaying(true);
+        }}
+      >
+        <video src="./video/intro.mp4" autoPlay muted loop />
         <h2>
           Framing your story
           <br />
           One moment at a time.
         </h2>
       </section>
+      {videoPlaying && (
+        <div id="video-modal">
+          <video src="./video/full.mp4" controls autoPlay />
+          <MdClose
+            size={40}
+            color="white"
+            onClick={() => {
+              setVideoPlaying(false);
+            }}
+          />
+        </div>
+      )}
       <section id="home-section-5">
         <div id="footer-wrapper">
           <div className="footer left">
