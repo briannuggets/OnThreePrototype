@@ -7,11 +7,14 @@ nav {
   align-items: center;
   z-index: 2;
   pointer-events: none;
+  a {
+    height: 80%;
+    margin-left: 2rem;
+  }
 }
 
 #nav-logo {
-  height: 80%;
-  margin-left: 2rem;
+  height: 100%;
   pointer-events: all;
   background: linear-gradient(to top, $primary-color, transparent);
   border: 1px solid $primary-color;

@@ -3,7 +3,9 @@
 const Nav = () => {
   return (
     <nav>
-      <img src="logo.svg" alt="On Three Logo" id="nav-logo" />
+      <a href="./">
+        <img src="logo.svg" alt="On Three Logo" id="nav-logo" />
+      </a>
       <button id="menu-button">
         <div className="hamburger top" />
         <div className="hamburger mid" />
