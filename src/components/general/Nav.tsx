@@ -1,5 +1,3 @@
-// import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
-
 const Nav = () => {
   return (
     <nav>

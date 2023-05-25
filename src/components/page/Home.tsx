@@ -88,6 +88,7 @@ const Home = () => {
 
   const marqueeRef = useRef<HTMLDivElement>(null);
 
+  // GSAP animation to move the marquee as the user scrolls
   useEffect(() => {
     if (marqueeRef.current === null) {
       return;
@@ -123,11 +124,13 @@ const Home = () => {
       return;
     }
 
+    // Custom variable to offset the marquee animation
     rightGalleryRef.current.style.setProperty(
       "--offset",
       `${gallerySectionRef.current.offsetHeight}px`
     );
 
+    // Animate gallery header text on viewport intersection
     gsap.to(galleryHeaderRef.current, {
       transform: "rotate3d(1, 0, 0, 0deg) translateY(0)",
       opacity: 1,
