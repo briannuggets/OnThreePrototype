@@ -6,6 +6,7 @@ interface LinkProps {
   stagger?: boolean;
   id?: string;
   className?: string;
+  newTab?: boolean;
 }
 
 const ShiftingLink: FC<LinkProps> = ({
@@ -14,6 +15,7 @@ const ShiftingLink: FC<LinkProps> = ({
   stagger,
   id,
   className,
+  newTab,
 }) => {
   // Wrap each character in a span tag for shifting animation
   const constructLink = () => {
@@ -65,6 +67,7 @@ const ShiftingLink: FC<LinkProps> = ({
       id={id}
       className={`shifting-link ${className ? className : ""}`}
       href={href}
+      target={newTab ? "_blank" : "_self"}
       onMouseEnter={() => {
         setHovered(true);
       }}
