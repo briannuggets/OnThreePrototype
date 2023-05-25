@@ -300,18 +300,50 @@ const Home = () => {
               />
             </div>
           </div>
-          <form className="footer right">
-            <input type="text" placeholder="Name" className="form-small" />
-            <input type="text" placeholder="Email" className="form-small" />
-            <input type="text" placeholder="Phone" className="form-small" />
-            <textarea placeholder="Message" className="form-large" />
+          <form
+            className="footer right"
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              className="form-small"
+              name="name"
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              placeholder="Email"
+              className="form-small"
+              name="email"
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              placeholder="Phone"
+              className="form-small"
+              name="phone"
+              autoComplete="off"
+            />
+            <textarea
+              placeholder="This is a sample form, it will not submit anything."
+              className="form-large"
+              name="message"
+            />
             <div className="form-small" id="submit-container">
               <span>
                 <MdLocationOn size={30} />
                 &nbsp;Richmond, VA
               </span>
               <div>
-                <input type="submit" value="Send" className="form-submit" />
+                <input
+                  type="submit"
+                  value="Send"
+                  className="form-submit"
+                  name="submit"
+                />
               </div>
             </div>
           </form>
