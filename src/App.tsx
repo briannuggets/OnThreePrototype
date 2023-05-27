@@ -47,6 +47,8 @@ function App() {
     );
   };
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   return (
     <div className="App">
       <Nav />
@@ -56,9 +58,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <div id="mouse-trailer" ref={trailerRef}>
-        {hoverVid ? <MdPlayArrow size={5} /> : <MdArrowOutward size={5} />}
-      </div>
+
+      {!isMobile && (
+        <div id="mouse-trailer" ref={trailerRef}>
+          {hoverVid ? <MdPlayArrow size={5} /> : <MdArrowOutward size={5} />}
+        </div>
+      )}
     </div>
   );
 }

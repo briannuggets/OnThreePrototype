@@ -75,6 +75,7 @@ button {
   opacity: 0;
   transition: 0.3s ease-out;
   mix-blend-mode: difference;
+  transform: scale(0);
   svg {
     @include absoluteCenter();
     opacity: 0;
