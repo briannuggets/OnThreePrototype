@@ -1,5 +1,7 @@
 @import "./hero";
 
+// --------- Home Section 1 --------- //
+
 #home-section-1 {
   height: 100vh;
   display: flex;
@@ -39,6 +41,8 @@
   }
 }
 
+// --------- Home Section 2 --------- //
+
 .scroll-text-char {
   opacity: 0.1;
   transition: 0.3s ease-in;
@@ -72,12 +76,14 @@
   }
 }
 
+// --------- Home Section 3 --------- //
+
 #home-section-3 {
   height: 100vh;
   background: darken($primary-color, 2%);
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: $default-margin;
   overflow: hidden;
 }
 
@@ -158,6 +164,8 @@
   }
 }
 
+// --------- Home Section 4 --------- //
+
 #home-section-4 {
   height: 100vh;
   margin-top: 8rem;
@@ -208,6 +216,8 @@
     transform: rotate(180deg);
   }
 }
+
+// --------- Home Section 5 --------- //
 
 #home-section-5 {
   height: 100vh;
@@ -278,6 +288,7 @@
     border-bottom: 2px solid $primary-color;
     color: $primary-color;
     padding-left: $default-margin;
+    padding-right: $default-margin;
     font-size: 1.5rem;
   }
   textarea {
@@ -355,5 +366,256 @@
   border: none;
   &:hover {
     cursor: pointer;
+  }
+}
+
+// --------- Media Queries --------- //
+
+@media screen and (max-width: 1200px) {
+  #home-section-1 {
+    svg {
+      left: 25%;
+      top: 55%;
+      transform: scale(0.7, -0.7) rotate(-50deg);
+    }
+  }
+
+  #home-section-2 {
+    span {
+      font-size: 10rem;
+    }
+  }
+
+  #footer-marquee span {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  #home-section-1 {
+    h2 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  #home-section-2 {
+    span {
+      font-size: 8rem;
+    }
+  }
+
+  .gallery-image {
+    height: 20rem;
+  }
+
+  .footer.left {
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+  .footer.right {
+    input:not([type="submit"]),
+    textarea {
+      font-size: 1.25rem;
+    }
+  }
+  #submit-container {
+    span,
+    input {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #footer-marquee span {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #home-section-2 {
+    span {
+      font-size: 6rem;
+    }
+  }
+
+  .gallery-image {
+    height: 15rem;
+  }
+
+  #home-section-4 h2 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #home-section-1 {
+    height: auto;
+    margin-bottom: 5rem;
+    flex-direction: column;
+    gap: 2rem;
+    div {
+      width: 100%;
+    }
+    h2 {
+      margin: 10% $default-margin 0 $default-margin;
+    }
+    h3 {
+      margin: 0 $default-margin 0 $default-margin;
+    }
+    .shifting-link {
+      margin-top: $default-margin;
+      margin-left: $default-margin;
+    }
+    svg {
+      display: none;
+    }
+  }
+
+  #section-3-header {
+    position: absolute;
+    width: 100%;
+    margin-left: 0;
+    @include flexCenter();
+    z-index: 1;
+    &::before {
+      @include pseudoFormatTL();
+      background-color: rgba($secondary-color, 0.8);
+    }
+    h2 {
+      color: $primary-color;
+    }
+    .shifting-link {
+      color: lighten($accent-color, 50%);
+    }
+  }
+  .scrolling-gallery.left {
+    margin-left: $default-margin;
+  }
+
+  #home-section-5 {
+    height: 200vh;
+  }
+  .footer.left {
+    border-right: none;
+    border-bottom: 2px solid $primary-color;
+    flex: 0.7;
+  }
+  .footer.right {
+    margin-bottom: 8rem;
+  }
+  #footer-marquee {
+    height: 8rem;
+    div {
+      width: 400%;
+    }
+    span {
+      font-size: 2.5rem;
+    }
+  }
+  .form-large {
+    flex: 8;
+  }
+  #footer-wrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #home-section-4 h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #home-section-1 {
+    h2 {
+      margin: 10% $mobile-margin 0 $mobile-margin;
+    }
+    h3 {
+      margin: 0 $mobile-margin 0 $mobile-margin;
+    }
+    .shifting-link {
+      margin-top: $mobile-margin;
+      margin-left: $mobile-margin;
+    }
+  }
+
+  #home-section-2 {
+    span:nth-child(1) {
+      transform: translateX(-80%);
+    }
+    span:nth-child(2) {
+      transform: translateX(-250%);
+    }
+    span:nth-child(3) {
+      transform: translateX(-50%);
+    }
+  }
+
+  #home-section-3 {
+    height: 70vh;
+    gap: $mobile-margin;
+  }
+  #section-3-header {
+    height: 70%;
+    h2 span:nth-child(3) {
+      font-size: 1.75rem;
+    }
+  }
+  .scrolling-gallery.left {
+    margin-left: $mobile-margin;
+    gap: $mobile-margin;
+  }
+  .scrolling-gallery.right {
+    margin-right: $mobile-margin;
+    gap: $mobile-margin;
+  }
+
+  #home-section-4 {
+    height: 70vh;
+  }
+  #home-section-4 h2 {
+    left: $mobile-margin;
+    margin-right: $mobile-margin;
+    text-align: center;
+    letter-spacing: -2px;
+  }
+
+  #footer-wrapper {
+    width: calc(100vw - 3rem);
+  }
+  .footer.left {
+    h2,
+    h3 {
+      margin: $mobile-margin;
+    }
+  }
+  #footer-links {
+    bottom: $mobile-margin;
+    left: $mobile-margin;
+  }
+  .footer.right {
+    input:not([type="submit"]),
+    textarea {
+      padding-right: $mobile-margin;
+      padding-left: $mobile-margin;
+    }
+  }
+  #footer-marquee {
+    height: 8rem;
+    div {
+      width: 600%;
+    }
+    span {
+      font-size: 3rem;
+    }
   }
 }
