@@ -1,6 +1,8 @@
-const Nav = () => {
+import React from "react";
+
+const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <nav>
+    <nav ref={ref}>
       <a href="./">
         <img src="logo.svg" alt="On Three Logo" id="nav-logo" />
       </a>
@@ -11,6 +13,6 @@ const Nav = () => {
       </button>
     </nav>
   );
-};
+});
 
 export default Nav;

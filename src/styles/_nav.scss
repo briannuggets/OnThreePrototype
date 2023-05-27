@@ -1,7 +1,8 @@
 nav {
+  --offset: 1rem;
   position: fixed;
   height: 120px;
-  width: calc(100vw - 1rem);
+  width: calc(100vw - var(--offset));
   display: flex;
   justify-content: space-between;
   align-items: center;

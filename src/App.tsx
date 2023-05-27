@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MdArrowOutward, MdPlayArrow } from "react-icons/md";
 import Nav from "./components/general/Nav";
 import Home from "./components/page/Home";
@@ -47,11 +47,19 @@ function App() {
     );
   };
 
+  // Adjust nav offset for mobile devices
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const navRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (navRef.current && isMobile) {
+      navRef.current.style.setProperty("--offset", "0px");
+      navRef.current.style.position = "fixed";
+    }
+  }, [navRef, isMobile]);
 
   return (
     <div className="App">
-      <Nav />
+      <Nav ref={navRef} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
