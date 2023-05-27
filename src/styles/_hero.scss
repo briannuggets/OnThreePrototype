@@ -7,8 +7,10 @@
 #hero-header {
   font-family: $secondary-font;
   color: $secondary-color;
+  padding-left: $default-margin;
+  padding-right: $default-margin;
   width: 100%;
-  font-size: 3.4vw;
+  font-size: 3.2vw;
   user-select: none;
   text-align: center;
   pointer-events: none;
@@ -107,14 +109,14 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
   font-size: 1.1rem;
   font-weight: 500;
   position: absolute;
-  left: 2rem;
-  bottom: 2rem;
+  left: $default-margin;
+  bottom: $default-margin;
 }
 
 #hero-links {
   position: absolute;
-  right: 2rem;
-  bottom: 2rem;
+  right: $default-margin;
+  bottom: $default-margin;
   display: flex;
   justify-content: space-between;
   gap: 2.5rem;
@@ -125,5 +127,41 @@ h1:has(.hero-header-word:hover) > .hero-header-word:not(:hover) {
   span {
     color: $accent-color;
     font-weight: 500;
+  }
+}
+
+// --------- Media Queries ---------
+
+@media screen and (max-width: 700px) {
+  #hero-header {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #hero-scroll {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #hero-header {
+    padding-left: $mobile-margin;
+    padding-right: $mobile-margin;
+  }
+  .hero-flash {
+    scale: 1.5;
+  }
+  #hero-links {
+    width: 100%;
+    right: 0;
+    padding-right: $mobile-margin;
+    padding-left: $mobile-margin;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  #hero-links {
+    font-size: 1rem;
   }
 }

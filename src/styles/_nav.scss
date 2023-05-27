@@ -10,7 +10,7 @@ nav {
   pointer-events: none;
   a {
     height: 80%;
-    margin-left: 2rem;
+    margin-left: $default-margin;
   }
 }
 
@@ -28,7 +28,7 @@ nav {
   height: 60px;
   border-radius: 50%;
   background-color: $primary-color;
-  margin-right: 2rem;
+  margin-right: $default-margin;
   @include flexCenterColumn();
   pointer-events: all;
 }
@@ -59,4 +59,15 @@ nav {
 
 #menu-button:hover > .hamburger.mid {
   transform: scaleX(1.2);
+}
+
+// ------------ Media Queries ------------
+@media screen and (max-width: 450px) {
+  nav a {
+    margin-left: $mobile-margin;
+  }
+
+  #menu-button {
+    margin-right: $mobile-margin;
+  }
 }
