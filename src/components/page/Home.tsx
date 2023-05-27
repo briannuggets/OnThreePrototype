@@ -95,7 +95,18 @@ const Home = () => {
     }
 
     let i = 0;
-    const offsets = ["-40%", "-80%", "-75%"];
+
+    // Offset adjustments for responsive layout
+    let offsets = ["-40%", "-80%", "-75%"];
+    if (window.innerWidth < 400) {
+      offsets = ["-200%", "-170%", "-250%"];
+    } else if (window.innerWidth < 450) {
+      offsets = ["-160%", "-160%", "-220%"];
+    } else if (window.innerWidth < 600) {
+      offsets = ["-120%", "-170%", "-140%"];
+    } else if (window.innerWidth < 700) {
+      offsets = ["-100%", "-80%", "-100%"];
+    }
     for (const marquee of marqueeRef.current.children) {
       gsap.to(marquee, {
         transform: `translateX(${offsets[i]})`,
@@ -234,14 +245,14 @@ const Home = () => {
           <GalleryImage id={5} href="work" />
           <GalleryImage id={1} href="work" />
           <GalleryImage id={2} href="work" />
-          <GalleryImage placeholder />
-          <GalleryImage placeholder />
-          <GalleryImage placeholder />
+          <GalleryImage id={3} href="work" />
+          <GalleryImage id={4} href="work" />
+          <GalleryImage id={5} href="work" />
         </div>
         <div className="scrolling-gallery right" ref={rightGalleryRef}>
-          <GalleryImage placeholder />
-          <GalleryImage placeholder />
-          <GalleryImage placeholder />
+          <GalleryImage id={10} href="work" />
+          <GalleryImage id={9} href="work" />
+          <GalleryImage id={8} href="work" />
           <GalleryImage id={7} href="work" />
           <GalleryImage id={6} href="work" />
           <GalleryImage id={10} href="work" />
