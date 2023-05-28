@@ -10,10 +10,11 @@ nav {
   align-items: center;
   z-index: 2;
   pointer-events: none;
-  a {
-    height: 80%;
-    margin-left: $default-margin;
-  }
+}
+
+a:has(#nav-logo) {
+  height: 80%;
+  margin-left: $default-margin;
 }
 
 #nav-logo {
@@ -34,7 +35,7 @@ nav {
   @include flexCenterColumn();
   pointer-events: all;
   position: relative;
-  transition: 0.5s ease-in 0.5s;
+  transition: 0.5s ease-in 1.2s;
 }
 
 nav:has(#menu.active) > #menu-button {
@@ -73,6 +74,55 @@ nav:has(#menu.active) > #menu-button {
   z-index: -1;
   transform: translateY(-100%);
   border-bottom: 1px solid rgba($secondary-color, 0.5);
+  display: flex;
+  pointer-events: all;
+}
+
+.menu-section {
+  flex: 1;
+}
+
+#menu-links {
+  @include flexCenterColumn();
+  align-items: flex-start;
+  div {
+    overflow: hidden;
+  }
+  .shifting-link {
+    font-weight: 400;
+    font-size: 6rem;
+    letter-spacing: -0.5rem;
+    transform: translateY(120%);
+  }
+  .shifting-link.current {
+    color: lighten($secondary-color, 25%);
+  }
+  .link-char::before {
+    color: lighten($accent-color, 15%);
+  }
+}
+
+#menu-images {
+  position: relative;
+  img {
+    @include absoluteCenter();
+    width: 20rem;
+    height: 30rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    border: 2px solid $secondary-color;
+    box-shadow: 0 0 1px 0px $secondary-color inset, 0 0 1px 0px $secondary-color;
+    opacity: 0;
+  }
+  img.current {
+    z-index: 1;
+  }
+  img:nth-child(1) {
+    transform: rotate(5deg) translate(-50%, -50%);
+  }
+  img:nth-child(2) {
+    transform: rotate(-5deg) translate(-40%, -55%);
+  }
 }
 
 // ------------ Media Queries ------------
