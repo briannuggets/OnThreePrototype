@@ -8,6 +8,7 @@ import About from "./components/page/About";
 import Contact from "./components/page/Contact";
 
 function App() {
+  // Smart mouse trailer
   const trailerRef = useRef<HTMLDivElement>(null);
   const [hoverVid, setHoverVid] = useState<boolean>(false);
   window.onmousemove = (e) => {
@@ -20,6 +21,7 @@ function App() {
 
     const interactable = (e.target as Element).closest(".interactable");
 
+    // Distinguish between video and link
     if (interactable !== null) {
       trailerRef.current.children[0].classList.add("visible");
       if (interactable.classList.contains("video")) {
@@ -31,6 +33,7 @@ function App() {
       trailerRef.current.children[0].classList.remove("visible");
     }
 
+    // Follow mouse, scale up if over interactable element
     trailerRef.current.animate(
       {
         transform: `translate(${
@@ -53,7 +56,6 @@ function App() {
   useEffect(() => {
     if (navRef.current && isMobile) {
       navRef.current.style.setProperty("--offset", "0px");
-      navRef.current.style.position = "fixed";
     }
   }, [navRef, isMobile]);
 

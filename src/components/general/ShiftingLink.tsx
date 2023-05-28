@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from "react";
+import { FC, useState } from "react";
 
 interface LinkProps {
   text: string;
@@ -60,7 +60,6 @@ const ShiftingLink: FC<LinkProps> = ({
 
   // Hover state
   const [hovered, setHovered] = useState(false);
-  const charsRef = useRef<HTMLSpanElement>(null);
 
   return (
     <a
@@ -75,10 +74,7 @@ const ShiftingLink: FC<LinkProps> = ({
         setHovered(false);
       }}
     >
-      <span
-        className={`shifting-link-chars ${hovered ? "hover" : ""}`}
-        ref={charsRef}
-      >
+      <span className={`shifting-link-chars ${hovered ? "hover" : ""}`}>
         {constructLink()}
       </span>
     </a>
