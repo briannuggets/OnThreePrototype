@@ -85,6 +85,7 @@
   justify-content: center;
   gap: $default-margin;
   overflow: hidden;
+  position: relative;
 }
 
 @keyframes scroll-up {
@@ -480,8 +481,7 @@
   }
 
   #section-3-header {
-    position: absolute;
-    width: 100%;
+    @include absoluteFill();
     margin-left: 0;
     @include flexCenter();
     z-index: 1;
@@ -501,12 +501,12 @@
   }
 
   #home-section-5 {
-    height: 200vh;
+    height: 150vh;
   }
   .footer.left {
     border-right: none;
     border-bottom: 2px solid $primary-color;
-    flex: 0.7;
+    flex: 1;
   }
   .footer.right {
     margin-bottom: 8rem;
@@ -521,7 +521,7 @@
     }
   }
   .form-large {
-    flex: 8;
+    flex: 6;
   }
   #footer-wrapper {
     flex-direction: column;
@@ -565,7 +565,6 @@
     gap: $mobile-margin;
   }
   #section-3-header {
-    height: 70%;
     h2 span:nth-child(3) {
       font-size: 1.75rem;
     }
