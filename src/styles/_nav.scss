@@ -126,6 +126,51 @@ nav:has(#menu.active) > #menu-button {
 }
 
 // ------------ Media Queries ------------
+@media screen and (max-width: 1020px) {
+  #menu-links .shifting-link {
+    font-size: 4rem;
+    letter-spacing: -0.2rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #menu-images img {
+    width: 15rem;
+    height: 25rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #menu-images img {
+    width: 20rem;
+    height: 30rem;
+  }
+  #menu-links {
+    @include absoluteFill();
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($secondary-color, 0.7);
+    z-index: 1;
+    .shifting-link.current {
+      color: lighten($secondary-color, 40%);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #menu-images {
+    display: none;
+  }
+  #menu-links {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  #menu-links .shifting-link {
+    font-size: 2rem;
+    letter-spacing: -0.1rem;
+  }
+}
+
 @media screen and (max-width: 450px) {
   nav a {
     margin-left: $mobile-margin;
