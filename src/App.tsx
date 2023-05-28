@@ -34,10 +34,14 @@ function App() {
     trailerRef.current.animate(
       {
         transform: `translate(${
-          e.clientX - trailerRef.current.offsetWidth
-        }px, ${e.clientY - trailerRef.current.offsetHeight}px) scale(${
-          interactable !== null ? 8 : 1
-        })`,
+          e.clientX -
+          trailerRef.current.offsetWidth +
+          (interactable !== null ? 40 : 0)
+        }px, ${
+          e.clientY -
+          trailerRef.current.offsetHeight +
+          (interactable !== null ? 40 : 0)
+        }px) scale(${interactable !== null ? 1 : 0.125})`,
       },
       { duration: 200, fill: "forwards" }
     );
@@ -65,7 +69,7 @@ function App() {
 
       {!isMobile && (
         <div id="mouse-trailer" ref={trailerRef}>
-          {hoverVid ? <MdPlayArrow size={5} /> : <MdArrowOutward size={5} />}
+          {hoverVid ? <MdPlayArrow size={40} /> : <MdArrowOutward size={40} />}
         </div>
       )}
     </div>

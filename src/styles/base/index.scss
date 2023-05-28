@@ -68,8 +68,9 @@ button {
 }
 
 #mouse-trailer {
-  height: 10px;
-  width: 10px;
+  transform-origin: bottom right;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   background-color: white;
   position: fixed;
