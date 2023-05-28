@@ -8,10 +8,6 @@ import About from "./components/page/About";
 import Contact from "./components/page/Contact";
 
 function App() {
-  window.onbeforeunload = () => {
-    window.scrollTo(0, 0);
-  };
-
   const trailerRef = useRef<HTMLDivElement>(null);
   const [hoverVid, setHoverVid] = useState<boolean>(false);
   window.onmousemove = (e) => {
