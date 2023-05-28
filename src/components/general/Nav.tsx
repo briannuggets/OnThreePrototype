@@ -155,9 +155,7 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
       links.push(child.children[0]);
     }
     for (const link of linkRef.current.children) {
-      if (link.classList.contains("current")) {
-        link.classList.remove("current");
-      }
+      link.classList.remove("current");
     }
     for (const link of links) {
       if (link.getAttribute("href") === window.location.pathname) {
@@ -227,7 +225,7 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
               hoverLink(0);
             }}
           >
-            <ShiftingLink text="HOME" stagger href="/" className="current" />
+            <ShiftingLink text="HOME" stagger href="/" />
           </div>
           <div
             onMouseEnter={() => {
