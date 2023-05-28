@@ -3,6 +3,7 @@ import ShiftingLink from "./ShiftingLink";
 import { gsap } from "gsap";
 
 const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
+  props = { ...props, ref: ref };
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
@@ -10,7 +11,6 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
   const aImageRef = useRef<HTMLImageElement>(null);
   const bImageRef = useRef<HTMLImageElement>(null);
   const menuButtonTl = useRef<gsap.core.Timeline>();
-  const menuTl = useRef<gsap.core.Timeline>();
 
   // Play animations on menu open/close
   // Disable scrolling when menu is open
@@ -21,16 +21,11 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
     if (menuButtonTl.current === null || menuButtonTl.current === undefined) {
       return;
     }
-    if (menuTl.current === null || menuTl.current === undefined) {
-      return;
-    }
 
     if (open) {
-      menuTl.current.play();
       menuButtonTl.current.play();
       menuRef.current.classList.add("active");
     } else {
-      menuTl.current.reverse();
       menuButtonTl.current.reverse();
       menuRef.current.classList.remove("active");
     }
@@ -63,7 +58,6 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
     }
 
     menuButtonTl.current = gsap.timeline({ paused: true });
-    menuTl.current = gsap.timeline({ paused: true });
     menuButtonTl.current
       .to(menuRef.current, {
         duration: 0.5,
@@ -137,7 +131,7 @@ const Nav = React.forwardRef<HTMLDivElement>((props, ref) => {
           opacity: 1,
           ease: "power4.out",
         },
-        "<0.1"
+        "<"
       )
       .to(
         bImageRef.current,
