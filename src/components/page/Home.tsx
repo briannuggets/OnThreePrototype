@@ -269,7 +269,7 @@ const Home = () => {
           setVideoPlaying(true);
         }}
       >
-        <video src="./video/intro.mp4" autoPlay muted loop />
+        <video src="./video/intro.mp4" autoPlay muted loop playsInline />
         <h2>
           Framing your story
           <br />
