@@ -107,6 +107,16 @@
   }
 }
 
+// Seamless scrolling disabled on mobile to improve performance
+@keyframes scroll-down-mobile {
+  from {
+    transform: translateY(-85%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .scrolling-gallery.left {
   animation: scroll-up 60s linear infinite;
 }

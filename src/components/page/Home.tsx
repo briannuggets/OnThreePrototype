@@ -135,7 +135,7 @@ const Home = () => {
       return;
     }
 
-    // Custom variable to offset the marquee animation
+    // Custom variable to allow seamless scrolling
     rightGalleryRef.current.style.setProperty(
       "--offset",
       `${gallerySectionRef.current.offsetHeight}px`
@@ -164,6 +164,19 @@ const Home = () => {
       },
     });
   }, []);
+
+  // Disable seamless scrolling on mobile to improve performance
+  useEffect(() => {
+    if (rightGalleryRef.current === null) {
+      return;
+    }
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      rightGalleryRef.current.style.animation =
+        "scroll-down-mobile 90s linear infinite";
+    }
+  });
 
   // ------- SECTION 4 ------- //
   const [videoPlaying, setVideoPlaying] = useState(false);
