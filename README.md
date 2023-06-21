@@ -1,4 +1,4 @@
-# On Three Photography - Case Study
+# [On Three Photography - Case Study](https://onthreeprototype.netlify.app/)
 This repository contains a case study on the photography website called "On Three Photography." It includes a prototype of the home page and an analysis of their existing website using a PowerPoint presentation.
 
 ## Prototype
